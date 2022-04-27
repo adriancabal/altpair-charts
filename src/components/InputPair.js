@@ -13,6 +13,8 @@ const InputPair = (props) => {
     const [secondInput, setSecondInput] = useState("");
     const [secondInputResults, setSecondInputResults] = useState([])
     const [secondInputValue, setSecondInputValue] = useState("");
+    const [textboxColor1, setTextboxColor1] = useState("bg-[#e1e6ed]");
+    const [textboxColor2, setTextboxColor2] = useState("bg-[#e1e6ed]");
 
     // const [onClickOutsideInput, setOnClickOutsideInput] = useState(()=> {});
 
@@ -33,12 +35,14 @@ const InputPair = (props) => {
         const coinSymbol = result.substring(result.indexOf('(')+1, result.length-1);
         setFirstInputValue(coinSymbol);
         setFirstInputResults([]);
+        setTextboxColor1("bg-[#e1e6ed]");
     }
 
     const handleSecondResultClick = (result) => {
         const coinSymbol = result.substring(result.indexOf('(')+1, result.length-1);
         setSecondInputValue(coinSymbol);
         setSecondInputResults([]);
+        setTextboxColor2("bg-[#e1e6ed]");
     }
 
     const handleSubmit = async () => {
@@ -100,26 +104,34 @@ const InputPair = (props) => {
 
     useEffect(() => {
         const handleClickOutside = (event) => {
+            // clicked outside textbox1
             if (textboxCointainerRef1.current && !textboxCointainerRef1.current.contains(event.target)) {
                 // alert("clicked outside textbox1, firstInputValue: " + firstInputValue);
                 onClickOutsideTextbox1 && onClickOutsideTextbox1();
+                setTextboxColor1("bg-[#e1e6ed]");
             }
+            // clicked inside textbox1
             if (textboxRef1.current && textboxRef1.current.contains(event.target)) {
                 // alert("clicked on textbox1, firstInputValue: " + firstInputValue);
                 onChangeInput1(firstInputValue);
+                setTextboxColor1("bg-[white]");
             }
+            // clicked outside textbox2
             if (textboxCointainerRef2.current && !textboxCointainerRef2.current.contains(event.target)) {
                 onClickOutsideTextbox2 && onClickOutsideTextbox2();
+                setTextboxColor2("bg-[#e1e6ed]");
             }
+            // clicked inside textbox2
             if (textboxRef2.current && textboxRef2.current.contains(event.target)) {
                 // alert("clicked on textbox2, secondInputValue: " + secondInputValue);
                 onChangeInput2(secondInputValue);
+                setTextboxColor2("bg-[white]");
             }
         };
         document.addEventListener('click', handleClickOutside, true);
 
         return () => {
-        document.removeEventListener('click', handleClickOutside, true);
+            document.removeEventListener('click', handleClickOutside, true);
         };
 
 
@@ -272,27 +284,8 @@ const InputPair = (props) => {
     }
 
     const onChangeInput2 = (text) => {
-        // setFirstInput(text);
         setSecondInputValue(text);
         if(text){
-            // const coinMapKeys = Object.keys(coinMap);
-            // const candidates = {};
-            // let candidatesAdded=0;
-
-            // coinMapKeys.every(item => {
-            //     if(item.toLowerCase().startsWith(text.toLowerCase()) 
-            //         && !candidates.hasOwnProperty(coinMap[item].title)
-            //     ){
-            //         candidatesAdded++;
-            //         candidates[coinMap[item].title]=item;
-            //         if(candidatesAdded === 5){
-            //             return false;
-            //         }
-            //     }
-            //     return true;           
-            // });
-
-            // const resultArray = Object.keys(candidates);
             const resultArray = getSearchResultList(text);
             setSecondInputResults(resultArray);
 
@@ -301,51 +294,22 @@ const InputPair = (props) => {
         }
 
     }
-
-
-
-    // useEffect(() => {
-    //     setSecondInputValue(secondInput);
-    //     if(secondInput){
-    //         const coinMapKeys = Object.keys(coinMap);
-    //         const candidates = {};
-    //         let candidatesAdded=0;
-
-    //         coinMapKeys.every(item => {
-    //             if(item.toLowerCase().startsWith(secondInput.toLowerCase()) 
-    //                 && !candidates.hasOwnProperty(coinMap[item].title)
-    //             ){
-    //                 candidatesAdded++;
-    //                 candidates[coinMap[item].title]=item;
-    //                 if(candidatesAdded === 5){
-    //                     return false;
-    //                 }
-    //             }
-    //             return true;           
-    //         });
-
-    //         const resultArray = Object.keys(candidates);
-    //         setSecondInputResults(resultArray);
-
-    //     }else{
-    //         setSecondInputResults([]);
-    //     }
-    // }, [secondInput]);
     
     const inputText1Corners = firstInputResults.length > 0 ? "rounded-t-lg" : "rounded-lg";
     const inputText2Corners = secondInputResults.length > 0 ? "rounded-t-lg" : "rounded-lg";
 
     return (
-        <div className={`flex flex-row bg-[#42f5bf] p-4 z-10 border-2  rounded-lg ${props.className}`}>
-             <div
-                className={`flex-column w-60 border-gray border-1 ${inputText1Corners}  bg-[white]`}
+        <div className={`flex md:flex-row flex-col bg-[#42f5bf] p-4 z-10 rounded-lg ${props.className}`}>
+
+            <div
+                className={`md:w-60 w-60 h-12 border-gray border-1 ${inputText1Corners} z-20  ${textboxColor1}`}
                 ref={textboxCointainerRef1}
-             >
-                 
-                <div className='absolute w-60'>
+            >
+                
+                <div className='absolute md:w-60 w-60'>
                     <SearchIcon className='mr-2' />
                     <input 
-                        className="w-48 h-12 focus:outline-none"
+                        className={`md:w-48 w-48 h-12 focus:outline-none ${textboxColor1}`}
                         type="text" 
                         name="name" 
                         placeholder="Coin1" 
@@ -368,19 +332,22 @@ const InputPair = (props) => {
                         }
                     </div>
                 </div>
- 
-            </div>
 
-            <h1 className='text-4xl ml-6'>{"/"}</h1>
+            </div>
+            
+            <div className='md:ml-6 md:mt-0 md:mb-0 mt-2 mb-2'>
+                <h1 className='md:text-4xl text-2xl'>{"/"}</h1>
+            </div>
+            
 
             <div
-                className={`flex-column w-60 border-white border-1 ${inputText2Corners} bg-[white] ml-6 `}
+                className={`md:w-60 w-60 h-12 flex-column  border-white border-1 ${inputText2Corners} ${textboxColor2} md:ml-6 md:mt-0 mt-2`}
                 ref={textboxCointainerRef2}
             >
-                <div className='absolute w-60'>
+                <div className='absolute md:w-60 w-60'>
                     <SearchIcon className='mr-2'/>
                     <input 
-                        className="w-48 h-12 focus:outline-none"
+                        className={`md:w-48 w-48 h-12 focus:outline-none ${textboxColor2} `}
                         type="text" 
                         name="name" 
                         placeholder="Coin2 (denomination)"
@@ -401,7 +368,7 @@ const InputPair = (props) => {
                 </div>
             </div>
 
-            <div className='flex flex-column items-center  ml-16 '>
+            <div className='items-center md:ml-16 md:mt-0 mt-10'>
                 <button className="w-36 h-12 bg-[#178735] text-white rounded-lg" type="button" onClick={() => handleSubmit()}>{"Get Pair"}</button>
             </div>
  

@@ -263,41 +263,44 @@ function App() {
 
   }
   
+  const chartWidth = window.innerWidth > 767 ? 950 : window.innerWidth > 400 ? 375 : 340;
+  const chartHeight = window.innerWidth > 767 ? 450 : window.innerWidth > 400 ? 200 : 200;
+  
   return (
-    <div className="App">
+    <div className="App w-screen">
         
       {/* Title logo */}
-      <div className='flex mb-32 '>
-        <div className='flex justify-center border-[blue] mr-2'>
-            <h1 className=' place-self-center text-white text-5xl border-[red]'> 
+      <div className='flex md:mb-32 md:mb-20 mb-16'>
+        <div className='flex justify-center border-[blue]'>
+            <h1 className=' place-self-center text-white md:text-5xl text-4xl border-[red]'> 
               {"AltPair"}
             </h1>
           
         </div>
-        <div className='mr-2'>
-          <img className="h-20 w-[65px]" src={pearHalf} alt="Logo" />
+        <div className='mx-2'>
+          <img className="md:h-20 h-16 md:w-[65px] w-[45px]" src={pearHalf} alt="Logo" />
         </div>
         <div className='flex justify-center border-[blue]'>
-            <h1 className=' place-self-center text-white text-5xl border-[red]'> 
+            <h1 className=' place-self-center text-white md:text-5xl text-4xl border-[red]'> 
               {"Charts"}
             </h1>
         </div>
       </div>
       
       {/* Search Pair component */}
-      <InputPair className="mb-40"/>
+      <InputPair className="md:mb-40 mb-24"/>
 
       {/* Chart */}
       { chartOptions && chartOptions.hasOwnProperty('chart') && coinPair.length > 0 &&
-        <div className='flex flex-row  w-auto mb-8'>
+        <div className='flex flex-row w-auto mb-8'>
           {/* PAIR HEADER */}
-          <h1 className='text-white text-4xl  '> 
+          <h1 className='text-white md:text-4xl  text-2xl'> 
             {`${coinPair[0].toUpperCase()}/${coinPair[1].toUpperCase()}`}
           </h1>
 
           {/* FLIP Pair Chart*/}
           <button 
-            className='text-[yellow] text-2xl  ml-80 bg-[blue] px-4 py-2 rounded-lg' 
+            className='text-[yellow] md:text-2xl text-md  md:ml-80 ml-32 bg-[blue] px-4 py-2 rounded-lg' 
             onClick={handleOnFlipPair}
           > 
             {`Flip Pair`}
@@ -313,8 +316,12 @@ function App() {
               series={seriesData}
               type="line"
               // type="candlestick"
-              height={450}
-              width={950}
+              // height={450}
+              // width={950}
+              // height={200}
+              // width={375}
+              height={chartHeight}
+              width={chartWidth}
             />
           </div>
         }
