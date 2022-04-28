@@ -175,6 +175,7 @@ let options = {
 function App() {
   const [chartOptions, setChartOptions] = useState(options);
   const [seriesData, setSeriesData] = useState([]);
+  const [typewriterText, setTypewriterText] = useState("altcoin");
   const chartPrice = useSelector((state) => state.chartData.chartPrice);
   const coinPair = useSelector((state) => state.chartData.coinPair);
   // const coin2 = useSelector((state) => state.chartData.coin2);
@@ -209,6 +210,8 @@ function App() {
 
     //   // alert("coinMap: " + JSON.stringify(resp));
     // })
+    
+
     setChartOptions(options);
     const getCoinMap = async () => {
       const coinMap = await getCoinList();
@@ -265,12 +268,22 @@ function App() {
   
   const chartWidth = window.innerWidth > 767 ? 950 : window.innerWidth > 400 ? 375 : 340;
   const chartHeight = window.innerWidth > 767 ? 450 : window.innerWidth > 400 ? 200 : 200;
-  
+  // const typewriterText = "altcoin";
   return (
     <div className="App w-screen">
+
+      {/* <video
+        autoPlay
+        loop
+        muted
+        id="video"
+      >
+        <source src="https://youtube.com/clip/UgkxLdlCeAybWPmA3WmphXua0TfuVfYjh8Rl" type="video/mp4" />
+      </video> */}
         
       {/* Title logo */}
-      <div className='flex md:mb-32 md:mb-20 mb-16'>
+      {/* <div className='wrapper md:mb-32 mb-16'></div> */}
+      <div className='flex md:mb-12 mb-10'>
         <div className='flex justify-center border-[blue]'>
             <h1 className=' place-self-center text-white md:text-5xl text-4xl border-[red]'> 
               {"AltPair"}
@@ -286,6 +299,27 @@ function App() {
             </h1>
         </div>
       </div>
+
+
+      <div className='wrapper md:mb-16 mb-12'>
+        <div className='text-white text-3xl'>
+          {"Charts for any "}
+        </div>
+        <ul className='typewriter-text text-3xl'>
+          <li><span>altcoin</span></li>
+          <li><span>pair</span></li>
+          <li><span>combination</span></li>
+        </ul>
+        {/* <div className='typewriter-text text-4xl'>
+          {typewriterText}
+        </div> */}
+      </div>
+      {/* <div className='wrapper md:mb-32 mb-16'>
+        <div className='typing-animation text-white text-2xl'>
+        {"View any altcoin pair combination"}
+        </div>
+      </div> */}
+      
       
       {/* Search Pair component */}
       <InputPair className="md:mb-40 mb-24"/>

@@ -306,7 +306,7 @@ const InputPair = (props) => {
                 ref={textboxCointainerRef1}
             >
                 
-                <div className='absolute md:w-60 w-60'>
+                <div className='absolute md:w-60 w-60 ml-2'>
                     <SearchIcon className='mr-2' />
                     <input 
                         className={`md:w-48 w-48 h-12 focus:outline-none ${textboxColor1}`}
@@ -320,6 +320,7 @@ const InputPair = (props) => {
                             // setFirstInput(keyword);
                             // handleOnChange(keyword);
                         }}
+                        autoComplete={"off"}
                         ref={textboxRef1}
                     />
                     <div className='w-full bg-[white] rounded-b-lg'>
@@ -344,7 +345,7 @@ const InputPair = (props) => {
                 className={`md:w-60 w-60 h-12 flex-column  border-white border-1 ${inputText2Corners} ${textboxColor2} md:ml-6 md:mt-0 mt-2`}
                 ref={textboxCointainerRef2}
             >
-                <div className='absolute md:w-60 w-60'>
+                <div className='absolute md:w-60 w-60 ml-2'>
                     <SearchIcon className='mr-2'/>
                     <input 
                         className={`md:w-48 w-48 h-12 focus:outline-none ${textboxColor2} `}
@@ -356,6 +357,7 @@ const InputPair = (props) => {
                             const keyword = e.target.value;
                             onChangeInput2(keyword);
                         }}
+                        autoComplete={"off"}
                         ref={textboxRef2}
                     />
                     <div className='w-full bg-[white] rounded-b-lg '>

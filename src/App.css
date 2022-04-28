@@ -2,7 +2,7 @@
   background-color: #282c34;
   display: flex;
   flex-direction: column;
-  text-align: center;
+  /* text-align: center; */
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -43,3 +43,109 @@
   }
 }
 
+/* typewriter effect */
+.wrapper {
+  /* height: 5vh; */
+  /*This part is important for centering*/
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  display: inline-flex;
+  /* border-width: 2px;
+  border-color: #61dafb; */
+}
+.typing-animation {
+  width: 100%;
+  animation: typing 2s steps(22) infinite, blink .5s step-end infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 2em;
+}
+
+/* @keyframes typing {
+  from {
+    width: 0
+  }
+}
+     */
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.wrapper .typewriter-text{
+  height: 35px;
+  line-height: 35px;
+  margin-left: 10px;
+  overflow: hidden;
+  
+  /* justify-content: center;
+  align-content: center; */
+}
+
+.typewriter-text li{
+  color: #e1e691;
+  list-style: none;
+  position: relative;
+  top: 0;
+
+  animation: slide 4.5s steps(3) infinite;
+  /* margin-top: 4px;
+  margin-bottom: 4px; */
+  /* border-width: 2px; */
+}
+
+.typewriter-text li span{
+  position: relative;
+
+  /* margin-bottom: 4px; */
+  /* border-width: 2px; */
+}
+
+.typewriter-text li span::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 90%;
+  width: 100%;
+  border-left: 2px solid #e1e691;
+  animation: typing 1.5s steps(11) infinite, blink .5s step-end infinite;
+  background-color: #282c34;
+  /* border-width: 2px; */
+  
+}
+@keyframes slide {
+  100%{
+    top: -105px;
+  }
+}
+
+@keyframes typing {
+  100% {
+    left: 100%;
+    margin: 0 -20px 0 20px;
+  }
+}
+/* video background */
+/* #video {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+} */
+
+/* .video-container{
+  width: 100vw;
+  height: 100vh;
+}
+    
+iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+} */
