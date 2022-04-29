@@ -336,7 +336,7 @@ const InputPair = (props) => {
 
             </div>
             
-            <div className='md:ml-6 md:mt-0 md:mb-0 mt-2 mb-2'>
+            <div className='text-center md:ml-6 md:mt-0 md:mb-0 mt-2 mb-2'>
                 <h1 className='md:text-4xl text-2xl'>{"/"}</h1>
             </div>
             
@@ -370,7 +370,7 @@ const InputPair = (props) => {
                 </div>
             </div>
 
-            <div className='items-center md:ml-16 md:mt-0 mt-10'>
+            <div className='items-center text-center md:ml-16 md:mt-0 mt-10'>
                 <button className="w-36 h-12 bg-[#178735] text-white rounded-lg" type="button" onClick={() => handleSubmit()}>{"Get Pair"}</button>
             </div>
  
