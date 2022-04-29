@@ -310,15 +310,7 @@ function App() {
           <li><span>any pair</span></li>
           <li><span>any combination</span></li>
         </ul>
-        {/* <div className='typewriter-text text-4xl'>
-          {typewriterText}
-        </div> */}
       </div>
-      {/* <div className='wrapper md:mb-32 mb-16'>
-        <div className='typing-animation text-white text-2xl'>
-        {"View any altcoin pair combination"}
-        </div>
-      </div> */}
       
       
       {/* Search Pair component */}

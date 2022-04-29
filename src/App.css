@@ -45,12 +45,8 @@
 
 /* typewriter effect */
 .wrapper {
-  /* height: 5vh; */
-  /*This part is important for centering*/
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: center; */
   display: inline-flex;
+  /* animation: shift 3s, 1.5s steps(2) infinite; */
   /* border-width: 2px;
   border-color: #61dafb; */
 }
@@ -122,6 +118,12 @@
     top: -105px;
   }
 }
+
+/* @keyframes shift {
+  from {
+    margin-left: 70px;
+  }
+} */
 
 @keyframes typing {
   100% {

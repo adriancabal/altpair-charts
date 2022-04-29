@@ -306,8 +306,8 @@ const InputPair = (props) => {
                 ref={textboxCointainerRef1}
             >
                 
-                <div className='absolute md:w-60 w-60 ml-2'>
-                    <SearchIcon className='mr-2' />
+                <div className='absolute md:w-60 w-60'>
+                    <SearchIcon className='ml-2 mr-2' />
                     <input 
                         className={`md:w-48 w-48 h-12 focus:outline-none ${textboxColor1}`}
                         type="text" 
@@ -345,8 +345,8 @@ const InputPair = (props) => {
                 className={`md:w-60 w-60 h-12 flex-column  border-white border-1 ${inputText2Corners} ${textboxColor2} md:ml-6 md:mt-0 mt-2`}
                 ref={textboxCointainerRef2}
             >
-                <div className='absolute md:w-60 w-60 ml-2'>
-                    <SearchIcon className='mr-2'/>
+                <div className='absolute md:w-60 w-60 '>
+                    <SearchIcon className='ml-2 mr-2'/>
                     <input 
                         className={`md:w-48 w-48 h-12 focus:outline-none ${textboxColor2} `}
                         type="text" 
