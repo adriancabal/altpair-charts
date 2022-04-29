@@ -109,10 +109,10 @@
   content: "";
   position: absolute;
   left: 0;
-  height: 90%;
+  height: 100%;
   width: 100%;
   border-left: 2px solid #e1e691;
-  animation: typing 1.5s steps(11) infinite, blink .5s step-end infinite;
+  animation: typing 1.5s steps(15) infinite, blink .5s step-end infinite;
   background-color: #282c34;
   /* border-width: 2px; */
   

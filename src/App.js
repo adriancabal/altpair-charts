@@ -290,7 +290,7 @@ function App() {
             </h1>
           
         </div>
-        <div className='mx-2'>
+        <div className='mx-2 pb-2'>
           <img className="md:h-20 h-16 md:w-[65px] w-[45px]" src={pearHalf} alt="Logo" />
         </div>
         <div className='flex justify-center border-[blue]'>
@@ -303,12 +303,12 @@ function App() {
 
       <div className='wrapper md:mb-16 mb-12'>
         <div className='text-white text-3xl'>
-          {"Charts for any "}
+          {"View "}
         </div>
         <ul className='typewriter-text text-3xl'>
-          <li><span>altcoin</span></li>
-          <li><span>pair</span></li>
-          <li><span>combination</span></li>
+          <li><span>any altcoin</span></li>
+          <li><span>any pair</span></li>
+          <li><span>any combination</span></li>
         </ul>
         {/* <div className='typewriter-text text-4xl'>
           {typewriterText}
